@@ -1,18 +1,63 @@
+:root {
+    --lime-green: hsl(163, 72%, 41%);
+    --bright-red: hsl(356, 69%, 56%);
+    --facebook-color: hsl(208, 92%, 53%);
+    --twitter-color: hsl(203, 89%, 53%);
+    --instagram-color: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+    --youtube-color: hsl(348, 97%, 39%);
+ }
 
+.light-theme {
+    --bg:  white;
+    --top-bg-pattern: hsl(225, 100%, 98%);
+    --card-bg: hsl(227, 47%, 96%);
+    --text-primary-color: hsl(230, 17%, 14%);
+    --text-secondary-color: hsl(228, 12%, 44%);
+ }
+ 
+.dark-theme {
+    --bg: hsl(230, 17%, 14%);
+    --top-bg-pattern: hsl(232, 19%, 15%);
+    --card-bg: hsl(228, 28%, 20%);
+    --text-primary-color: hsl(0, 0%, 100%);
+    --text-secondary-color: hsl(228, 34%, 66%);
+ }
+
+.primary-color {
+    color: var(--text-primary-color);
+ }
+ 
+.secondary-color {
+    color: var(--text-secondary-color);
+ }
+
+section {
+    min-width: 600px;
+}
 body {
     font-size: 14px;
     font-family: 'Inter',sans-serif;
-    background: linear-gradient(hsl(309, 76%, 97%), white);
+    background: var(--bg);
     justify-content: center;
     align-items: center;
     text-align: center;
-    
+}
+
+body::after {
+   content: "";
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 25rem;
+   background-color: var(--top-bg-pattern);
+   z-index: -1;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    min-width: 600px;
     justify-content: center;
     align-items: center;
     margin: 150px;
@@ -25,14 +70,13 @@ body {
     height: 100px;
     text-align: left;
     margin-left: -400px;
-
 }
+
 .header h1 {
-    font-size: 30px;;
+    font-size: 30px;
 }
 .header p {
     font-size: 15px;
-    color: grey;
 }
 
 .toggle {
@@ -40,48 +84,39 @@ body {
     align-items: flex-end;
     text-align: end;
     transform: translate(380px, 30px);
-    color: grey;
     font-weight: bold;
 }
 
-.main {
-    display: flex;
+.main, .board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
     flex-direction: row;
     margin-top: 25px;
 }
 
 .card {
     width: 210px; 
-    margin: 10px;
-    background: hsl(240, 15%, 91%);
+    background: var(--card-bg);
+    margin: 5px;
     padding-top: 10px;
-    border-top: 4px solid;
-    border-radius: 5px;;
+    border-top: 5px solid transparent;
+    border-radius: 5px;
 }
 .facebook {
-    border-top-color: hsl(208, 92%, 53%);
+    border-color: hsl(208, 92%, 53%);
 }
 .twitter {
-    border-top-color: hsl(203, 89%, 53%);
+    border-color: hsl(203, 89%, 53%);
 }
 .instagram {
-   border-top-color: hsl(37, 97%, 70%);
+    background-image: var(--instagram-color);
+    background-repeat: no-repeat;
+    background-position: left top -5px;
+    background-size: 100% 5px;
 }
 .youtube {
-    border-top-color: hsl(348, 97%, 39%);
-}
-
-.fa-facebook-square {
-    color: hsl(208, 92%, 53%);
-}
-.fa-twitter {
-    color: hsl(203, 89%, 53%);
-}
-.fa-instagram {
-    color: hsl(37, 97%, 70%);
-}
-.fa-youtube-square {
-    color: hsl(348, 97%, 39%);
+    border-color: hsl(348, 97%, 39%);
 }
 
 .card p span {
@@ -96,16 +131,71 @@ body {
 }
 
 .name {
-    color: grey;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
 
-.status {
+.status, .b {
     margin: 20px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight:  bold;
+    color: hsl(163, 72%, 41%);
 }
+.youtube .status, .red {
+    color: hsl(356, 69%, 56%);
+}
+.status img {
+    transform: translateY(-2px);
+}
+
+.overview {
+    font-size: 25px;
+    font-weight: bold;
+    color: grey;
+    margin-left: -680px;
+    margin-bottom: -15px;
+}
+
+.small-card {
+    border-radius: 5px;
+    width: 180px; 
+    height: 100px;
+    margin: 5px;
+    background: var(--card-bg);
+    padding: 15px;
+    text-align: start;
+}
+
+.second {
+    display: inline;
+}
+.a {
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+.b {
+    float: right;
+    transform: translateY(-12px);
+    margin-right: 0;
+}
+.b img {
+    transform: translateY(5px);
+}
+.small-card img {
+    float: right;
+}
+
+.first {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card:hover, .small-card:hover {
+    background: hsl(240, 16%, 77%);
+    cursor: pointer;
+}
+
 
 
 /* The switch - the box around the slider */
@@ -132,9 +222,12 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: hsl(230, 22%, 74%);
+    background: hsl(230, 22%, 74%);
     -webkit-transition: .4s;
     transition: .4s;
+}
+.slider:hover {
+    background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
 }
   
 .slider:before {
@@ -150,7 +243,7 @@ body {
 }
   
 input:checked + .slider {
-    background-color: hsl(163, 38%, 53%) ;
+    background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
 }
   
 input:focus + .slider {
@@ -176,8 +269,66 @@ input:checked + .slider:before {
 .attribution {
     font-size: 11px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+
+@media only screen and (max-width: 700px){
+    body {
+        width: auto;
+    }
+    .container {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .header {
+        width: auto;
+        display: flex;
+        display: column;
+        margin-bottom: 50px;
+        margin-left: -100px;
+    }
+    .main, .board {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+    }
+    .toggle {
+        transform: translate(-260px, 120px);
+        font-size: 13px;
+    }
+    .switch {
+        position: absolute;
+        margin-left: 120px;
+    }
+    .header h1 {
+        font-size: 22px;
+    }
+    .header p {
+        font-size: 14px;
+    }
+    .card {
+        width: 260px; 
+        margin-left: -160px;
+    }
+    .overview {
+        font-size: 20px;
+        margin-left: -250px;
+    }
+    .small-card {
+        width: 240px;
+        margin-left: -160px;
+        padding: 10px;
+        height: 90px;
+    }
+    .attribution {
+        font-size: 9px;
+        margin-left: -165px;
+    }
 }
