@@ -9,98 +9,125 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 
   <title> Theme Toggle Switcher </title>
 
 </head>
 
-<body>
+<body class="light-theme">
   <section class="container">
     <div class="header">
-      <h1>Social Media Dashboard<br>
-        <p>Total Followers: 23,004</p>
+      <h1 class="primary-color">Social Media Dashboard<br>
+        <p class="secondary-color">Total Followers: 23,004</p>
       </h1>
 
-      <div class="toggle">
+      <div class="toggle secondary-color">
         <span>Dark Mode</span>
         <label class="switch">
           <input type="checkbox" id="theme-switch">
-          <span class="slider round"></span>
+          <span class="slider round" onclick="SwitchTheme()"></span>
         </label>
       </div>
     </div>
+    
     <div class="main">
+      
       <div class="card facebook">
-        <p><i class="fab fa-facebook-square fa-2x"></i> <span>@nathanf</span></p>
-        <span class="number">1987</span><br>
-        <span class="name">Followers</span><br>
-        <p class="status">12 Today</p><br>
+        <p><img src="images/icon-facebook.svg"><span class="secondary-color">@nathanf</span></p>
+        <span class="number primary-color">1987</span><br>
+        <span class="name secondary-color">Followers</span><br>
+        <p class="status"><img src="images/icon-up.svg">12 Today</p><br>
       </div>
+      
       <div class="card twitter">
-        <p><i class="fab fa-twitter fa-2x"></i> <span>@nathanf</span></p>
-        <span class="number">1044</span><br>
-        <span class="name">Followers</span><br>
-        <p class="status">99 Today</p><br>
+        <p><img src="images/icon-twitter.svg"><span class="secondary-color">@nathanf</span></p>
+        <span class="number primary-color">1044</span><br>
+        <span class="name secondary-color">Followers</span><br>
+        <p class="status"><img src="images/icon-up.svg">99 Today</p><br>
       </div>
+      
       <div class="card instagram">
-        <p><i class="fab fa-instagram fa-2x"></i> <span>@realnathanf</span></p>
-        <span class="number">11k</span><br>
-        <span class="name">Followers</span><br>
-        <p class="status">1099 Today</p><br>
+        <p><img src="images/icon-instagram.svg"><span class="secondary-color">@realnathanf</span></p>
+        <span class="number primary-color">11k</span><br>
+        <span class="name secondary-color">Followers</span><br>
+        <p class="status"><img src="images/icon-up.svg">1099 Today</p><br>
       </div>
+      
       <div class="card youtube">
-        <p><i class="fab fa-youtube-square fa-2x"></i> <span>Nathan F.</span></p>
-        <span class="number">8239</span><br>
-        <span class="name">Subscribers</span><br>
-        <p class="status">144 Today</p><br>
+        <p><img src="images/icon-youtube.svg"><span class="secondary-color">Nathan F.</span></p>
+        <span class="number primary-color">8239</span><br>
+        <span class="name secondary-color">Subscribers</span><br>
+        <p class="status"><img src="images/icon-down.svg">144 Today</p><br>
       </div>
     </div>
 
-    <p class="overview">Overview - Today</p>
-
+    <p class="overview secondary-color">Overview - Today</p>
+   
     <div class="board">
+      
       <div class="small-card">
-        <p class="first">Page Views <i class="fab fa-facebook-square fa-2x"></i></p><br>
-        <p class="a">87</p>
-        <p class="b">3%</p>
+        <p class="first secondary-color">Page Views <img src="images/icon-facebook.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">87</span>
+        <span class="b"><img src="images/icon-up.svg">3%</span>
+        </p>
       </div>
+      
       <div class="small-card">
-        <p class="first">Likes <i class="fab fa-facebook-square fa-2x"></i></p><br>
-        <p class="a">52</p>
-        <p class="b">2%</p>
+        <p class="first secondary-color">Likes <img src="images/icon-facebook.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">52</span>
+        <span class="b red"><img src="images/icon-down.svg">2%</span>
+        </p>
       </div>
+      
       <div class="small-card">
-        <p class="first">Likes <i class="fab fa-instagram fa-2x"></i></p><br>
-        <p class="a">5462</p>
-        <p class="b">2257%</p>
+        <p class="first secondary-color">Likes<img src="images/icon-instagram.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">5462</span>
+        <span class="b"><img src="images/icon-up.svg">2257%</span>
+        </p>
       </div>
+      
       <div class="small-card">
-        <p class="first">Profile Views <i class="fab fa-instagram fa-2x"></i></p><br>
-        <p class="a">52k</p>
-        <p class="b">1375%</p>
+        <p class="first secondary-color">Profile Views<img src="images/icon-instagram.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">52k</span>
+        <span class="b"><img src="images/icon-up.svg">1375%</span>
+        </p>
       </div>
+      
       <div class="small-card">
-        <p class="first">Retweets <i class="fab fa-twitter fa-2x"></i></p><br>
-        <p class="a">117</p>
-        <p class="b">303%</p>
+        <p class="first secondary-color">Retweets<img src="images/icon-twitter.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">117</span>
+        <span class="b"><img src="images/icon-up.svg">303%</span>
+        </p>
       </div>
+      
       <div class="small-card">
-        <p class="first">Likes <i class="fab fa-twitter fa-2x"></i></p><br>
-        <p class="a">507</p>
-        <p class="b">553%</p>
+        <p class="first secondary-color">Likes<img src="images/icon-twitter.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">507</span>
+        <span class="b"><img src="images/icon-up.svg">553%</span>
+        </p>
       </div>
+      
       <div class="small-card">
-        <p class="first">Likes <i class="fab fa-youtube-square fa-2x"></i></p><br>
-        <p class="a">107</p>
-        <p class="b">19%</p>
+        <p class="first secondary-color">Likes<img src="images/icon-youtube.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">107</span>
+        <span class="b red"><img src="images/icon-down.svg">19%</span>
+        </p>
       </div>
+      
       <div class="small-card">
-        <p class="first">Total Views <i class="fab fa-youtube-square fa-2x"></i></p><br>
-        <p class="a">1407</p>
-        <p class="b">12%</p>
+        <p class="first secondary-color">Total Views<img src="images/icon-youtube.svg"></p><br>
+        <p class="second">
+        <span class="a primary-color">1407</span>
+        <span class="b red"><img src="images/icon-down.svg">12%</span>
+        </p>
       </div>
     </div>
 
@@ -111,5 +138,5 @@
   </section>
   <script src="index.js"></script>
 </body>
-
+  
 </html>
